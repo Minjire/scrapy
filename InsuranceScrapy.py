@@ -73,6 +73,7 @@ class InsuranceSpider(scrapy.Spider):
                 WINDSCREEN_SELECTOR = './/tr[td/text() = "Windscreen: "]/td[2]/b/text()'
                 ANTITHEFT_SELECTOR = './/tr[td/text() = "Windscreen: "]/td[4]/b/text()'
                 PLAYER_SELECTOR = './/tr[td/text() = "Windscreen: "]/td[6]/b/text()'
+                TOTAL_INSURABLES_SELECTOR = './/tr[td/text() = "Examiner\'s Opinion: Kshs"]/td[2]/b/text()'
 
                 IMAGE_SELECTOR = 'img ::attr(src)'
 
@@ -109,6 +110,7 @@ class InsuranceSpider(scrapy.Spider):
                 item['Windscreen_Price_Est']  = brickset.xpath(WINDSCREEN_SELECTOR).extract()
                 item['Anti_Theft_Price_Est'] = brickset.xpath(ANTITHEFT_SELECTOR).extract()
                 item['Player_Price_Est'] = brickset.xpath(PLAYER_SELECTOR).extract()
+                item['Total_Insurable'] = brickset.xpath(TOTAL_INSURABLES_SELECTOR).extract()
                 item['images'] = brickset.css(IMAGE_SELECTOR).extract()
                 yield item
 
