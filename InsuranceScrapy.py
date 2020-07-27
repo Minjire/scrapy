@@ -120,15 +120,7 @@ class InsuranceSpider(scrapy.Spider):
             if(next_id<558999):
                 yield response.follow(next_page, self.parse)
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+# run spider
+process = CrawlerProcess()
+process.crawl(InsuranceSpider)
+process.start()
