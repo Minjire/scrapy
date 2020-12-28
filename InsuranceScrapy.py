@@ -12,10 +12,10 @@ class InsuranceSpider(scrapy.Spider):
 
     #handle_httpstatus_list = [500, 502]
 
-    start_urls = ['https://val.aakenya.co.ke/rptwithhdr/insurance.aspx?id=1']
+    start_urls = ['']
 
     def parse(self, response):
-        base_url='https://val.aakenya.co.ke/rptwithhdr/insurance.aspx?id='
+        base_url=''
         parsed = urlparse.urlparse(response.url)
         last_id = urlparse.parse_qs(parsed.query)['id']
         next_id = int(last_id[0])+1
